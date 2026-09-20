@@ -1,0 +1,1058 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rumaisa Thumbnail Studio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f8fc;
+    color:#172033;
+    line-height:1.6;
+}
+
+/* NAVBAR */
+nav{
+    background:#063b63;
+    padding:16px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 12px rgba(0,0,0,.15);
+}
+
+nav h2{
+    color:white;
+    font-size:22px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#7ee8fa;
+}
+
+/* HERO */
+.hero{
+    min-height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:50px 20px;
+    background:linear-gradient(135deg,#063b63,#087f8c);
+    color:white;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.hero h1{
+    font-size:54px;
+    margin-bottom:18px;
+}
+
+.hero p{
+    font-size:21px;
+    margin-bottom:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+/* BUTTONS */
+.btn{
+    display:inline-block;
+    padding:13px 24px;
+    background:white;
+    color:#063b63;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 15px rgba(0,0,0,.2);
+}
+
+.primary-btn{
+    background:#063b63;
+    color:white;
+}
+
+/* SECTIONS */
+section{
+    padding:65px 20px;
+    max-width:1150px;
+    margin:auto;
+}
+
+section h2{
+    text-align:center;
+    color:#063b63;
+    margin-bottom:35px;
+    font-size:34px;
+}
+
+/* SAMPLES */
+.samples{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:22px;
+}
+
+.sample-card{
+    background:white;
+    padding:30px 15px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+    cursor:pointer;
+    transition:.3s;
+}
+
+.sample-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.sample-icon{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.sample-card h3{
+    color:#063b63;
+}
+
+/* PACKAGES */
+.packages{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.package{
+    background:white;
+    padding:32px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.package:hover{
+    transform:translateY(-5px);
+}
+
+.package h3{
+    color:#063b63;
+    font-size:27px;
+}
+
+.price{
+    font-size:32px;
+    font-weight:bold;
+    color:#087f8c;
+    margin:15px 0;
+}
+
+.package ul{
+    list-style:none;
+    margin-bottom:20px;
+}
+
+.package li{
+    margin:9px 0;
+}
+
+/* ABOUT */
+.about{
+    background:white;
+    border-radius:16px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 5px 18px rgba(0,0,0,.07);
+}
+
+.about p{
+    margin:10px 0;
+}
+
+/* ORDER */
+.order-box{
+    background:white;
+    padding:35px;
+    border-radius:16px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+    max-width:700px;
+    margin:auto;
+}
+
+.order-box label{
+    display:block;
+    font-weight:bold;
+    color:#063b63;
+    margin-top:8px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:13px;
+    margin:8px 0 15px;
+    border:1px solid #ccd6df;
+    border-radius:8px;
+    font-size:16px;
+    outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#087f8c;
+}
+
+textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+.order-button{
+    width:100%;
+    padding:14px;
+    border:none;
+    background:#063b63;
+    color:white;
+    font-size:17px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.order-button:hover{
+    background:#087f8c;
+}
+
+/* CONTACT */
+.contact-box{
+    background:white;
+    padding:35px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+.contact-box p{
+    margin:10px 0;
+}
+
+.instagram-button{
+    display:inline-block;
+    background:#087f8c;
+    color:white;
+    padding:14px 28px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    margin-top:15px;
+    transition:.3s;
+}
+
+.instagram-button:hover{
+    background:#063b63;
+    transform:translateY(-2px);
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    z-index:2000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.7);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.modal-content{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    max-width:550px;
+    width:100%;
+    text-align:center;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:18px;
+    top:8px;
+    font-size:32px;
+    cursor:pointer;
+    color:#063b63;
+}
+
+#modalSample{
+    background:linear-gradient(135deg,#063b63,#087f8c);
+    color:white;
+    min-height:230px;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+/* FOOTER */
+footer{
+    background:#063b63;
+    color:white;
+    text-align:center;
+    padding:28px 20px;
+    margin-top:20px;
+}
+
+footer p{
+    margin:4px;
+}
+
+/* TOP BUTTON */
+#topBtn{
+    display:none;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#087f8c;
+    color:white;
+    border:none;
+    border-radius:50%;
+    width:48px;
+    height:48px;
+    cursor:pointer;
+    font-size:22px;
+    z-index:1500;
+}
+
+/* MOBILE */
+@media(max-width:750px){
+
+    nav{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    nav ul{
+        gap:10px;
+    }
+
+    nav ul li a{
+        font-size:14px;
+    }
+
+    .hero h1{
+        font-size:37px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    section{
+        padding:50px 15px;
+    }
+
+    section h2{
+        font-size:29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+
+    <h2>Rumaisa Thumbnail Studio</h2>
+
+    <ul>
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#samples">My Samples</a>
+        </li>
+
+        <li>
+            <a href="#packages">Packages</a>
+        </li>
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
+        <li>
+            <a
+                href="https://www.instagram.com/rumi70137/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                💬 Message Me
+            </a>
+        </li>
+
+        <li>
+            <a href="#order">Order Now</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            Creative YouTube Thumbnails
+        </h1>
+
+        <p>
+            Eye-catching thumbnails designed
+            to make your videos stand out!
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#samples"
+                class="btn"
+            >
+                🎨 View My Samples
+            </a>
+
+            <a
+                href="https://www.instagram.com/rumi70137/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn"
+            >
+                💬 Message Me
+            </a>
+
+            <a
+                href="#order"
+                class="btn primary-btn"
+            >
+                🛒 Order Now
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SAMPLES -->
+<section id="samples">
+
+    <h2>My Samples</h2>
+
+    <div class="samples">
+
+        <div
+            class="sample-card"
+            onclick="openSample('AI')"
+        >
+            <div class="sample-icon">🤖</div>
+            <h3>AI</h3>
+            <p>AI Video Thumbnail</p>
+        </div>
+
+        <div
+            class="sample-card"
+            onclick="openSample('Gaming')"
+        >
+            <div class="sample-icon">🎮</div>
+            <h3>Gaming</h3>
+            <p>Gaming Thumbnail</p>
+        </div>
+
+        <div
+            class="sample-card"
+            onclick="openSample('Education')"
+        >
+            <div class="sample-icon">📚</div>
+            <h3>Education</h3>
+            <p>Educational Thumbnail</p>
+        </div>
+
+        <div
+            class="sample-card"
+            onclick="openSample('Business')"
+        >
+            <div class="sample-icon">💼</div>
+            <h3>Business</h3>
+            <p>Business Thumbnail</p>
+        </div>
+
+        <div
+            class="sample-card"
+            onclick="openSample('Vlog')"
+        >
+            <div class="sample-icon">📹</div>
+            <h3>Vlog</h3>
+            <p>Vlog Thumbnail</p>
+        </div>
+
+        <div
+            class="sample-card"
+            onclick="openSample('Cartoon')"
+        >
+            <div class="sample-icon">🎨</div>
+            <h3>Cartoon</h3>
+            <p>Cartoon Thumbnail</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PACKAGES -->
+<section id="packages">
+
+    <h2>My Packages</h2>
+
+    <div class="packages">
+
+        <div class="package">
+
+            <h3>Basic</h3>
+
+            <div class="price">
+                PKR 300
+            </div>
+
+            <ul>
+                <li>✅ 1 Thumbnail</li>
+                <li>✅ HD Quality</li>
+                <li>✅ 1 Revision</li>
+            </ul>
+
+            <button
+                class="btn"
+                onclick="choosePackage('Basic - PKR 300')"
+            >
+                Choose Package
+            </button>
+
+        </div>
+
+
+        <div class="package">
+
+            <h3>Standard</h3>
+
+            <div class="price">
+                PKR 800
+            </div>
+
+            <ul>
+                <li>✅ 3 Thumbnails</li>
+                <li>✅ HD Quality</li>
+                <li>✅ 2 Revisions</li>
+            </ul>
+
+            <button
+                class="btn"
+                onclick="choosePackage('Standard - PKR 800')"
+            >
+                Choose Package
+            </button>
+
+        </div>
+
+
+        <div class="package">
+
+            <h3>Premium</h3>
+
+            <div class="price">
+                PKR 1,200
+            </div>
+
+            <ul>
+                <li>✅ 5 Thumbnails</li>
+                <li>✅ HD Quality</li>
+                <li>✅ Unlimited Revisions</li>
+            </ul>
+
+            <button
+                class="btn"
+                onclick="choosePackage('Premium - PKR 1,200')"
+            >
+                Choose Package
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+    <h2>About Me</h2>
+
+    <div class="about">
+
+        <p>
+            👋 Hi! I am Rumaisa.
+        </p>
+
+        <p>
+            I create creative and eye-catching
+            YouTube thumbnails for different
+            types of videos.
+        </p>
+
+        <p>
+            🤖 AI • 🎮 Gaming • 📚 Education •
+            💼 Business • 📹 Vlog • 🎨 Cartoon
+        </p>
+
+        <p>
+            My goal is to make thumbnails that
+            look attractive, clear and professional.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ORDER -->
+<section id="order">
+
+    <h2>Place Your Order</h2>
+
+    <div class="order-box">
+
+        <label>Your Name</label>
+
+        <input
+            type="text"
+            id="orderName"
+            placeholder="Enter your name"
+        >
+
+
+        <label>Your Email</label>
+
+        <input
+            type="email"
+            id="orderEmail"
+            placeholder="Enter your email"
+        >
+
+
+        <label>Select Package</label>
+
+        <select id="package">
+
+            <option value="">
+                Select a package
+            </option>
+
+            <option value="Basic - PKR 300">
+                Basic - PKR 300
+            </option>
+
+            <option value="Standard - PKR 800">
+                Standard - PKR 800
+            </option>
+
+            <option value="Premium - PKR 1,200">
+                Premium - PKR 1,200
+            </option>
+
+        </select>
+
+
+        <label>Thumbnail Details</label>
+
+        <textarea
+            id="details"
+            placeholder="Tell me about the thumbnail you need..."
+        ></textarea>
+
+
+        <button
+            class="order-button"
+            onclick="submitOrder()"
+        >
+            📩 Send Order
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+
+    <h2>Contact Me</h2>
+
+    <div class="contact-box">
+
+        <p>
+            📸 Instagram:
+            <strong>@rumi70137</strong>
+        </p>
+
+        <p>
+            Have a question or want to order
+            a thumbnail?
+        </p>
+
+        <a
+            href="https://www.instagram.com/rumi70137/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="instagram-button"
+        >
+            💬 Send Me a Message
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- SAMPLE MODAL -->
+<div
+    class="modal"
+    id="sampleModal"
+>
+
+    <div class="modal-content">
+
+        <span
+            class="close"
+            onclick="closeSample()"
+        >
+            &times;
+        </span>
+
+        <h2 id="modalTitle">
+            Sample
+        </h2>
+
+        <div id="modalSample">
+        </div>
+
+        <button
+            class="btn"
+            onclick="downloadSample()"
+        >
+            ⬇️ Download Sample
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © 2026 Rumaisa Thumbnail Studio
+    </p>
+
+    <p>
+        Creative • Simple • Professional
+    </p>
+
+</footer>
+
+
+<!-- TOP BUTTON -->
+<button
+    id="topBtn"
+    onclick="goTop()"
+>
+    ↑
+</button>
+
+
+<script>
+
+/* SAMPLE MODAL */
+
+let currentSample = "";
+
+function openSample(type){
+
+    currentSample = type;
+
+    document.getElementById("modalTitle").innerText =
+        type + " Thumbnail";
+
+    document.getElementById("modalSample").innerText =
+        type + " SAMPLE";
+
+    document.getElementById("sampleModal").style.display =
+        "flex";
+}
+
+
+function closeSample(){
+
+    document.getElementById("sampleModal").style.display =
+        "none";
+}
+
+
+window.addEventListener("click", function(event){
+
+    const modal =
+        document.getElementById("sampleModal");
+
+    if(event.target === modal){
+
+        closeSample();
+
+    }
+
+});
+
+
+/* DOWNLOAD SAMPLE */
+
+function downloadSample(){
+
+    const canvas =
+        document.createElement("canvas");
+
+    canvas.width = 1280;
+    canvas.height = 720;
+
+    const ctx =
+        canvas.getContext("2d");
+
+    const gradient =
+        ctx.createLinearGradient(
+            0,
+            0,
+            1280,
+            720
+        );
+
+    gradient.addColorStop(
+        0,
+        "#063b63"
+    );
+
+    gradient.addColorStop(
+        1,
+        "#087f8c"
+    );
+
+    ctx.fillStyle = gradient;
+
+    ctx.fillRect(
+        0,
+        0,
+        1280,
+        720
+    );
+
+    ctx.fillStyle = "white";
+
+    ctx.font =
+        "bold 80px Arial";
+
+    ctx.textAlign =
+        "center";
+
+    ctx.fillText(
+        currentSample + " THUMBNAIL",
+        640,
+        370
+    );
+
+    const link =
+        document.createElement("a");
+
+    link.download =
+        currentSample + "-thumbnail.png";
+
+    link.href =
+        canvas.toDataURL("image/png");
+
+    link.click();
+
+}
+
+
+/* PACKAGE BUTTON */
+
+function choosePackage(packageName){
+
+    document.getElementById("package").value =
+        packageName;
+
+    document.getElementById("order").scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ORDER */
+
+function submitOrder(){
+
+    const name =
+        document.getElementById("orderName").value.trim();
+
+    const email =
+        document.getElementById("orderEmail").value.trim();
+
+    const packageName =
+        document.getElementById("package").value;
+
+    const details =
+        document.getElementById("details").value.trim();
+
+
+    if(
+        !name ||
+        !email ||
+        !packageName ||
+        !details
+    ){
+
+        alert(
+            "Please fill in all order details."
+        );
+
+        return;
+    }
+
+
+    alert(
+        "Your order details are ready! Please send them to me on Instagram."
+    );
+
+
+    window.open(
+        "https://www.instagram.com/rumi70137/",
+        "_blank",
+        "noopener,noreferrer"
+    );
+
+}
+
+
+/* TOP BUTTON */
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        const topBtn =
+            document.getElementById("topBtn");
+
+        if(
+            document.body.scrollTop > 300 ||
+            document.documentElement.scrollTop > 300
+        ){
+
+            topBtn.style.display =
+                "block";
+
+        }else{
+
+            topBtn.style.display =
+                "none";
+
+        }
+
+    }
+);
+
+
+function goTop(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
+```
